@@ -1,8 +1,12 @@
 package com.silent.shoplist;
-
+import android.content.Intent;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -10,9 +14,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+import com.silent.shoplist.database.DadosOpenHelper;
+
 public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fabAdd;
-    private RecyclerView list;
+    private CoordinatorLayout layoutContentMain;
+    private SQLiteDatabase conexao;
+    private DadosOpenHelper dadosOpenHelper;
+    private RecyclerView lstFav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +32,35 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         fabAdd = findViewById(R.id.add_list);
-        list = findViewById(R.id.list_fav);
+        lstFav = findViewById(R.id.list_fav);
+
+        criarConexao();
     }
 
-    public void onClickAdd(View view){
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+    private void criarConexao(){
+        try{
+
+            dadosOpenHelper = new DadosOpenHelper(this);
+
+            conexao = dadosOpenHelper.getWritableDatabase();
+
+            Snackbar.make(layoutContentMain, "CONEXÃO CRIADA COM SUCESSO!", Snackbar.LENGTH_SHORT)
+                    .setAction("OK",null).show();
+
+
+        }catch (SQLException ex){
+            AlertDialog.Builder  dlg = new AlertDialog.Builder(this);
+            dlg.setTitle("ERRO!");
+            dlg.setMessage(ex.getMessage());
+            dlg.setNeutralButton("OK",null);
+            dlg.show();
+
+        }
+    }
+
+    public void showAddProductList(View view){
+        Intent intent = new Intent(MainActivity.this, ActAddProductList.class );
+        startActivity(intent);
     }
 
 
