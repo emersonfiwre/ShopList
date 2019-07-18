@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">ShopList</string>
     <string name="action_settings">Settings</string>
+
+    <string name="title_aviso">AVISO!!</string>
+    <string name="message_campos_invalidos_brancos">Preencha todos os campos corretamente!!</string>
+    <string name="lbl_ok">OK</string>
+    <string name="message_conexao_sucesso">CONEXÃO CRIADA COM SUCESSO!</string>
+
+
 </resources>

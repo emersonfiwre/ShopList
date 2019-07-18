@@ -14,15 +14,15 @@
         android:text="Quantidade"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="151dp"
-        android:inputType="numberSigned"/>
+       />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/edt_qtde"
         android:layout_width="46dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="1"
-        android:inputType="textPersonName"
+        android:inputType="numberSigned"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="77dp" />
 
@@ -35,11 +35,11 @@
         tools:layout_editor_absoluteY="42dp" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edt_nome"
         android:layout_width="288dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="João Messias"
+        android:hint="Chocolate lacta 120g"
         android:inputType="textPersonName"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="77dp" />
@@ -53,11 +53,11 @@
         tools:layout_editor_absoluteY="151dp" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/edt_valor"
         android:layout_width="253dp"
         android:layout_height="wrap_content"
-        android:hint="R$ 10,99"
         android:ems="10"
+        android:hint="R$ 10,99"
         android:inputType="numberDecimal" />
 
     <TextView
@@ -69,7 +69,7 @@
         tools:layout_editor_absoluteY="151dp" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/edt_data"
         android:layout_width="288dp"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -77,10 +77,13 @@
         android:inputType="date"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="77dp" />
-
-
-
-
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:onClick="cadastra"
+        android:text="Adicionar" />
 
 
 </LinearLayout>
