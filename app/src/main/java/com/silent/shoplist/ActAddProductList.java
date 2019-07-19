@@ -3,17 +3,18 @@ package com.silent.shoplist;
 
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.silent.shoplist.database.DadosOpenHelper;
-import com.silent.shoplist.dominio.ProdutoRepositorio;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+
 import com.silent.shoplist.entidades.Produto;
 
 public class ActAddProductList extends AppCompatActivity {
@@ -21,10 +22,8 @@ public class ActAddProductList extends AppCompatActivity {
     private EditText edtQtde, edtNome,edtValor, edtData;
     private CoordinatorLayout layoutContentMain;
     private SQLiteDatabase conexao;
-    private DadosOpenHelper dadosOpenHelper;
-    private Button btnAdiciona;
+     private Button btnAdiciona;
     private Produto produto;
-    private ProdutoRepositorio produtoRepositorio;
 
 
     @Override
@@ -37,7 +36,7 @@ public class ActAddProductList extends AppCompatActivity {
         edtData = findViewById(R.id.edt_data);
         btnAdiciona = findViewById(R.id.btn_add);
 
-        criarConexao();
+
     }
 
     private boolean validaCampos(){
@@ -90,25 +89,6 @@ public class ActAddProductList extends AppCompatActivity {
 
     }
 
-    private void criarConexao(){//colocar esse codigo na controler
-        try{
-
-            dadosOpenHelper = new DadosOpenHelper(this);
-
-            conexao = dadosOpenHelper.getWritableDatabase();
-
-            produtoRepositorio = new ProdutoRepositorio(conexao);
-
-
-        }catch (SQLException ex){
-            AlertDialog.Builder  dlg = new AlertDialog.Builder(this);
-            dlg.setTitle(R.string.lbl_erro);
-            dlg.setMessage(ex.getMessage());
-            dlg.setNeutralButton(R.string.lbl_ok,null);
-            dlg.show();
-
-        }
-    }
 
     private boolean isCampoVazio(String valor){
 
@@ -119,25 +99,4 @@ public class ActAddProductList extends AppCompatActivity {
 
 
 
-    public void cadastra (View view){
-        produto = new Produto();
-
-        if(!validaCampos()){
-
-            try {
-                produtoRepositorio.inserir(produto);
-
-                finish();
-
-            }catch (SQLException ex){
-                AlertDialog.Builder  dlg = new AlertDialog.Builder(this);
-                dlg.setTitle(R.string.lbl_erro);
-                dlg.setMessage(ex.getMessage());
-                dlg.setNeutralButton(R.string.lbl_ok,null);
-                dlg.show();
-
-            }
-        }
-
-    }
-}
+ }
