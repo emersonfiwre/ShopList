@@ -15,13 +15,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-import com.silent.shoplist.database.DadosOpenHelper;
+//import com.silent.shoplist.database.DadosOpenHelper;
 
 public class MainActivity extends AppCompatActivity {
     private FloatingActionButton fabAdd;
     private CoordinatorLayout layoutContentMain;
     private SQLiteDatabase conexao;
-    private DadosOpenHelper dadosOpenHelper;
+//    private DadosOpenHelper dadosOpenHelper;
     private RecyclerView lstFav;
 
     @Override
@@ -34,34 +34,34 @@ public class MainActivity extends AppCompatActivity {
         fabAdd = findViewById(R.id.add_list);
         lstFav = findViewById(R.id.list_fav);
 
-        criarConexao();
+//        criarConexao();
     }
 
-    private void criarConexao(){
-        try{
+//    private void criarConexao(){
+//        try{
+//
+//            dadosOpenHelper = new DadosOpenHelper(this);
+//
+//            conexao = dadosOpenHelper.getWritableDatabase();
+//
+//            Snackbar.make(layoutContentMain, "CONEXÃO CRIADA COM SUCESSO!", Snackbar.LENGTH_SHORT)
+//                    .setAction("OK",null).show();
+//
+//
+//        }catch (SQLException ex){
+//            AlertDialog.Builder  dlg = new AlertDialog.Builder(this);
+//            dlg.setTitle("ERRO!");
+//            dlg.setMessage(ex.getMessage());
+//            dlg.setNeutralButton("OK",null);
+//            dlg.show();
+//
+//        }
+//    }
 
-            dadosOpenHelper = new DadosOpenHelper(this);
-
-            conexao = dadosOpenHelper.getWritableDatabase();
-
-            Snackbar.make(layoutContentMain, "CONEXÃO CRIADA COM SUCESSO!", Snackbar.LENGTH_SHORT)
-                    .setAction("OK",null).show();
-
-
-        }catch (SQLException ex){
-            AlertDialog.Builder  dlg = new AlertDialog.Builder(this);
-            dlg.setTitle("ERRO!");
-            dlg.setMessage(ex.getMessage());
-            dlg.setNeutralButton("OK",null);
-            dlg.show();
-
-        }
-    }
-
-    public void showAddProductList(View view){
-        Intent intent = new Intent(MainActivity.this, ActAddProductList.class );
-        startActivity(intent);
-    }
+//    public void showAddProductList(View view){
+//        Intent intent = new Intent(MainActivity.this, ActAddProductList.class );
+//        startActivity(intent);
+//    }
 
 
     @Override
