@@ -6,6 +6,7 @@
     <string name="message_campos_invalidos_brancos">Preencha todos os campos corretamente!!</string>
     <string name="lbl_ok">OK</string>
     <string name="message_conexao_sucesso">CONEXÃO CRIADA COM SUCESSO!</string>
+    <string name="lbl_erro">ERRO!</string>
 
 
 </resources>

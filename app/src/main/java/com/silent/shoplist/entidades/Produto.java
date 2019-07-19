@@ -1,6 +1,4 @@
-package com.silent.shoplist.dominio.entidades;
-
-import java.util.Date;
+package com.silent.shoplist.entidades;
 
 public class Produto {
     public int codigo;
